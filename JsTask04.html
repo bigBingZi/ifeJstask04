@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"  href="04.css" type="text/css" />
+</head>
+<body>
+<input id="queue" title="aQueue" type="number" >
+<button id="leftIn" value="左侧入" title="左侧入" >左侧入</button>
+<button id="rightIn" value="右侧入" title="右侧入">右侧入</button>
+<button id="leftOut" value="左侧出" title="左侧出">左侧出</button>
+<button id="rightOut" value="右侧出" title="右侧出">右侧出</button>
+<div id="container" >
+
+</div>
+
+</body>
+<script>
+        var number1 = document.getElementById("queue");
+        var divContainer = document.getElementById("container");
+        //四个按钮的函数
+        document.getElementById("leftIn").addEventListener("click", function () {
+            var node = document.createElement("div");
+            var textnode = document.createTextNode(number1.value);
+            node.appendChild(textnode);
+            divContainer.insertBefore(node, divContainer.firstChild)
+        });
+
+        document.getElementById("rightIn").addEventListener("click", function () {
+            var node = document.createElement("div");
+            var textnode = document.createTextNode(number1.value);
+            node.appendChild(textnode);
+            divContainer.appendChild(node);
+        });
+        document.getElementById("leftOut").addEventListener("click", function () {
+            if(divContainer.firstElementChild){
+                var firstChild = divContainer.firstElementChild;
+                divContainer.removeChild(firstChild);
+                alert(firstChild.innerText)}
+            else{
+                alert("No element!")
+            }
+        });
+        document.getElementById("rightOut").addEventListener("click", function () {
+            if(divContainer.lastElementChild){
+                var lastChild = divContainer.lastElementChild;
+                divContainer.removeChild(lastChild);
+                alert(lastChild.innerText)
+            }
+            else{
+                alert("No element!")
+            }
+
+        });
+        //点击队列中数字，删除该数字
+        divContainer.addEventListener("click",function(){
+              if(event.target.nodeName.toLowerCase()=="div"){
+                    divContainer.removeChild(event.target);
+              }})
+
+
+
+
+</script>
+</html>
