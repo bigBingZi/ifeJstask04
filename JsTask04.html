@@ -21,14 +21,14 @@
         var divContainer = document.getElementById("container");
         //四个按钮的函数
         document.getElementById("leftIn").addEventListener("click", function () {
-            var node = document.createElement("div");
+            var node = document.createElement("p");
             var textnode = document.createTextNode(number1.value);
             node.appendChild(textnode);
             divContainer.insertBefore(node, divContainer.firstChild)
         });
 
         document.getElementById("rightIn").addEventListener("click", function () {
-            var node = document.createElement("div");
+            var node = document.createElement("p");
             var textnode = document.createTextNode(number1.value);
             node.appendChild(textnode);
             divContainer.appendChild(node);
@@ -55,7 +55,7 @@
         });
         //点击队列中数字，删除该数字
         divContainer.addEventListener("click",function(){
-              if(event.target.nodeName.toLowerCase()=="div"){
+              if(event.target.nodeName.toLowerCase()=="p"){
                     divContainer.removeChild(event.target);
               }})
 
